@@ -27,28 +27,17 @@ type NavItem = {
 const navItems: NavItem[] = [
   {
     label: "Project",
-    link: "#",
     children: [
       {
         label: "Electrical",
-        link: "#",
+        link: "/electrical",
         iconImage: todoImage,
       },
       {
         label: "Sola",
-        link: "#",
+        link: "/solar",
         iconImage: calendarImage,
       },
-      // {
-      //   label: "Reminders",
-      //   link: "#",
-      //   iconImage: remindersImage,
-      // },
-      // {
-      //   label: "Planning",
-      //   link: "#",
-      //   iconImage: planningImage,
-      // },
     ],
   },
   {
@@ -71,7 +60,7 @@ const navItems: NavItem[] = [
   },
   {
     label: "About",
-    link: "#",
+    link: "/about",
   },
 ];
 
@@ -90,7 +79,10 @@ export default function Navbar() {
       {/* left side  */}
       <section ref={animationParent} className="flex items-center gap-10">
         {/* logo */}
-        <Image src={logo} width={50} alt=" logo" />
+        <Link href={"/"}>
+          <Image src={logo} width={50} alt=" logo" />
+        </Link>
+
         {isSideMenuOpen && <MobileNav closeSideMenu={closeSideMenu} />}
         <div className="hidden md:flex items-center gap-4 transition-all">
           {navItems.map((d, i) => (
@@ -135,9 +127,12 @@ export default function Navbar() {
 
       {/* right side data */}
       <section className=" hidden md:flex   items-center gap-8 ">
-        <button className="h-fit text-neutral-400 transition-all hover:text-black/90">
+        <Link
+          href={"https://www.youtube.com/@meyeneelectricalcompanyltd"}
+          className="h-fit text-neutral-400 transition-all hover:text-black/90"
+        >
           YouTube
-        </button>
+        </Link>
 
         <Link
           href={
@@ -182,9 +177,12 @@ function MobileNav({ closeSideMenu }: { closeSideMenu: () => void }) {
         </div>
 
         <section className="  flex  flex-col   gap-8  mt-4 items-center">
-          <button className="h-fit text-neutral-400 transition-all hover:text-black/90">
+          <Link
+            href={" https://www.youtube.com/@meyeneelectricalcompanyltd"}
+            className="h-fit text-neutral-400 transition-all hover:text-black/90"
+          >
             YouTube
-          </button>
+          </Link>
 
           <Link
             href={
